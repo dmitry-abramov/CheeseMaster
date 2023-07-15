@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<title>Cheese Master</title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+	<h1 th:inline="text">
+		Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!
+	</h1>
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Sign Out" />
+	</form>
+
+	<div class="container">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Name</th>
+					<th scope="col">Country</th>
+				</tr>
+			</thead>
+
+			<tbody th:each="cheese: ${cheeses}">
+				<tr>
+					<th>
+						<p>
+							<a th:href="@{/cheese/{id}(id=${cheese.getId()})}"
+								th:text="${cheese.getName()}">Default link</a>
+						</p>
+					</th>
+					<td><a th:text="${cheese.getCountry()}"></a></td>					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

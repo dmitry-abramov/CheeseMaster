@@ -26,7 +26,7 @@ public class LoginPageFilter extends GenericFilterBean {
         if (isAuthenticated() && "/login".equals(servletRequest.getRequestURI())) {
 
             String encodedRedirectURL = ((HttpServletResponse) response).encodeRedirectURL(
-              servletRequest.getContextPath() + "/hello");
+              servletRequest.getContextPath() + "/cheese");
 
             servletResponse.setStatus(HttpStatus.TEMPORARY_REDIRECT.value());
             servletResponse.setHeader("Location", encodedRedirectURL);

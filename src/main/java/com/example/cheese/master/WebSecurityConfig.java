@@ -39,7 +39,7 @@ public class WebSecurityConfig {
 								.sameOrigin()))			
 				.formLogin((form) -> form
 						.loginPage("/login")
-						.defaultSuccessUrl("/hello")						
+						.defaultSuccessUrl("/cheese")						
 						.permitAll())
 				.logout((logout) -> logout
 						.permitAll());
