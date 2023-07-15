@@ -28,7 +28,8 @@
 					th:field="*{country}" id="email" placeholder="Country"> <span
 					th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></span>
 			</div>
-			<input type="submit" value="Save">
+			<input class="btn btn-primary" type="submit" value="Save">
+			<a class="btn btn-secondary" th:href="@{/cheese}">Cancel</a>
 		</form>
 	</div>
 </body>
