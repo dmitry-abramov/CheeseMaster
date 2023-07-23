@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-    <head>
-        <title>Cheese Master</title>
-        <link th:href = "@{/css/bootstrap.min.css}" rel="stylesheet">
-    </head>
-    <body>
-        <h1>Welcome to Cheese Master!</h1>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout.html}"
+	layout:decorator="layout">
+<body>
+<div layout:fragment="content">
+	<h1>Welcome to Cheese Master!</h1>
 
-        <p>Click <a th:href="@{/cheese}">here</a> to login.</p>
-    </body>
+	<p>
+		Click <a th:href="@{/cheese}">here</a> to login.
+	</p>
+</div>
+</body>
 </html>

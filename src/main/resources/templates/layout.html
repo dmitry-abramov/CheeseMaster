@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<title>Cheese Master</title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+
+<body>
+    Layout
+	<div layout:replace="header :: header"></div>
+	<div layout:fragment="content"></div>
+</body>
+
+</html>
