@@ -8,10 +8,12 @@
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 
-<body>
-	<div layout:replace="fragments/anonymousHeader :: anonymousHeader"></div>
-	<div layout:fragment="content"></div>
-	<div layout:replace="fragments/footer :: footer"></div>
+<body class="h-100">
+	<div class="wrapper d-flex flex-column h-100">
+		<div layout:replace="fragments/anonymousHeader :: anonymousHeader"></div>
+		<div layout:fragment="content"></div>
+		<div layout:replace="fragments/footer :: footer"></div>
+	</div>
 </body>
 
 </html>
