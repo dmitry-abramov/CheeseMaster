@@ -18,8 +18,8 @@ import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
 public class MvcConfig implements WebMvcConfigurer {
 
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/home").setViewName("home.html");
-		registry.addViewController("/").setViewName("home.html");
+		registry.addViewController("/home").setViewName("home");
+		registry.addViewController("/").setViewName("home");
 		registry.addViewController("/login").setViewName("login");
 	}
 	
@@ -29,25 +29,5 @@ public class MvcConfig implements WebMvcConfigurer {
 	    templateEngine.addTemplateResolver(templateResolver);
 	    templateEngine.addDialect(new LayoutDialect());
 	    return templateEngine;
-	}
-	
-	@Bean
-	public ViewResolver htmlViewResolver(ApplicationContext applicationContext) {
-	    ThymeleafViewResolver resolver = new ThymeleafViewResolver();
-	    resolver.setTemplateEngine(templateEngine(htmlTemplateResolver(applicationContext)));
-	    resolver.setContentType("text/html");
-	    resolver.setCharacterEncoding("UTF-8");
-	    resolver.setViewNames(new String[] {"*.html"});
-	    return resolver;
-	}
-
-	private ITemplateResolver htmlTemplateResolver(ApplicationContext applicationContext) {
-	    SpringResourceTemplateResolver resolver
-	      = new SpringResourceTemplateResolver();
-	    resolver.setApplicationContext(applicationContext);
-	    resolver.setPrefix("/WEB-INF/views/");
-	    resolver.setCacheable(false);
-	    resolver.setTemplateMode(TemplateMode.HTML);
-	    return resolver;
 	}
 }
