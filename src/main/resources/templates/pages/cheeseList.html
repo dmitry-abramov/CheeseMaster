@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/mainLayout}">
+
+<div layout:fragment="content" class="container">
+	<a class="btn btn-primary" th:href="@{/cheese/add}">Add cheese</a>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Name</th>
+				<th scope="col">Country</th>
+				<th scope="col">Actions</th>
+			</tr>
+		</thead>
+
+		<tbody th:each="cheese: ${cheeses}">
+			<tr>
+				<th><a th:href="@{/cheese/{id}(id=${cheese.getId()})}"
+					th:text="${cheese.getName()}"></a></th>
+				<td><span th:text="${cheese.getCountry()}"></span></td>
+				<td><a th:href="@{/cheese/update/{id}(id=${cheese.getId()})}">Update</a>
+					<a th:href="@{/cheese/delete/{id}(id=${cheese.getId()})}">Delete</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+</html>

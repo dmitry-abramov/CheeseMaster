@@ -20,26 +20,26 @@ public class CheeseController {
 	@GetMapping()	
 	public String index(Model model) {
 		model.addAttribute("cheeses", cheeseRepository.findAll());
-		return "cheeseList";
+		return "pages/cheeseList";
 	}
 	
 	@GetMapping("/list")	
 	public String list(Model model) {
 		model.addAttribute("cheeses", cheeseRepository.findAll());
-		return "cheeseList";
+		return "pages/cheeseList";
 	}
 	
 	@GetMapping("/update/{id}")
 	public String showUpdate(@PathVariable("id") Long id, Model model) {
 		var cheese = cheeseRepository.findById(id).orElseThrow();
 		model.addAttribute("cheese", cheese);
-		return "cheeseUpdate";
+		return "pages/cheeseUpdate";
 	}
 	
 	@PostMapping("/update/{id}")
 	public String update(@PathVariable("id") Long id, @Valid Cheese cheese, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-            return "cheeseUpdate";
+            return "pages/cheeseUpdate";
         }
         
         cheeseRepository.save(cheese);
@@ -49,7 +49,7 @@ public class CheeseController {
 	@GetMapping("/add")
 	public String showAdd(@Valid Cheese cheese, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-            return "cheeseAdd";
+            return "pages/cheeseAdd";
         }
         
         cheeseRepository.save(cheese);
@@ -59,7 +59,7 @@ public class CheeseController {
 	@PostMapping("/add")
 	public String add(@Valid Cheese cheese, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-            return "cheeseAdd";
+            return "pages/cheeseAdd";
         }
         
         cheeseRepository.save(cheese);
@@ -70,7 +70,7 @@ public class CheeseController {
 	public String showView(@PathVariable("id") Long id, Model model) {
 		var cheese = cheeseRepository.findById(id).orElseThrow();
 		model.addAttribute("cheese", cheese);
-		return "cheeseView";
+		return "pages/cheeseView";
 	}
 	
 	// TODO: use delete http verb 

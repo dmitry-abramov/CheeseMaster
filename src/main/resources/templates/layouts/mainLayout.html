@@ -9,9 +9,9 @@
 </head>
 
 <body>
-    Layout
-	<div layout:replace="header :: header"></div>
+	<div layout:replace="fragments/userHeader :: userHeader"></div>
 	<div layout:fragment="content"></div>
+	<div layout:replace="fragments/footer :: footer"></div>
 </body>
 
 </html>

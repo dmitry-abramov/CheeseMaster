@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/mainLayout}">
+
+<div layout:fragment="content" class="container">
+	<a class="btn btn-secondary" th:href="@{/cheese}">Back to list</a>
+	<div>
+		<label>Name:</label> <span th:text="${cheese.getName()}"></span>
+	</div>
+	<div>
+		<label>Country:</label> <span th:text="${cheese.getCountry()}"></span>
+	</div>
+</div>
+
+</html>

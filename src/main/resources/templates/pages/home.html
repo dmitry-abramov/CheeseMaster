@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="https://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout}">
-<body>
+	layout:decorate="~{layouts/anonymousLayout}">
+
 <div layout:fragment="content">
 	<h1>Welcome to Cheese Master!</h1>
 
@@ -11,5 +11,5 @@
 		Click <a th:href="@{/cheese}">here</a> to login.
 	</p>
 </div>
-</body>
+
 </html>

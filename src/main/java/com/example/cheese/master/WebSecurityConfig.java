@@ -30,6 +30,7 @@ public class WebSecurityConfig {
 				(requests) -> requests
 					.requestMatchers("/", "/home", "/error").permitAll()
 					.requestMatchers("/css/**").permitAll()
+					.requestMatchers("/images/**").permitAll()
 					.requestMatchers(PathRequest.toH2Console()).permitAll()
 					.anyRequest().authenticated())
 				.csrf(csrf -> csrf
